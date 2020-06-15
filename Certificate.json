@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "vitandaandroid",
+  "private_key_id": "577b59663985c3428230da08551930e28f578ad9",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQC/ha8Ddx+6KOcE\nv7ZWj+2rC8EFFK+fg7iEiQo2/yBpsMyvQhW1k/Ww0hgY0KGhYr0xnKLalKpPZMn+\nRjRwSaIUkXJE0FeofjbFBHj0Xwz9+iyQ7dKkv/nqpLa6xl5/WjgxlpvhqGXoTLel\nQVYjM8FCIeroj1P4IZmFPFHYcU/Kr6yUqbfrWXgE4/Dj6omQaQwD4ChQve3YJhf5\n2tsjPdOofu4rs7OyuRYFIVAZazVyNlwjuO+VFt4fQcFAqwyCv5w0cBtcOyUYQ6p7\nxbYrtCt6B1tUXE/IzDCiraD6gv4XuIszscizuqCkX+1dpFNRt06w+D9K+m/nAxFn\nnlhzhCMVAgMBAAECggEACa73F5rYYZJLsJox3FloHU/EPrRvocYoQu6RM+Z9NiLQ\njTmZ5+Wh1JghdvBmL7Gn77V5Usm//QYopAuFf2TrBepfB5rXcnHj5TJnRtx0ciCf\nTA+ePiK6aTJSo98U7Dr8oDM60UjGqEgSuU9e99DYKra/eL/gcWlfff9RWGXNmz7l\nXrD12k9+V8KrN7RVveWs3tnStLosJJoglnUVTA5NPsNCwvDxq1NkGoBMkxPqRXlJ\nYLSRWI2UCXmfWAVmUNOIGfDTD22P6kEL3bj30un2wIUIIs9MNba0tnVG+scqNxrp\np/PyW7nuPXAFvdOTrBcfsJ21KxPRfzjjNXXcGnb3AQKBgQDpUUPBk5ay3IvDMZbl\nbK6gj+U/AZUfjCOGOvuNE2S6nLcOmotIy1OKNevrzTkEoXBQDRcGm4sAmhTCDkQe\niQaWjnujAY/BHMByhCfCJCIF/mYcA49H4l3UZMQFPX8ktMTnXHjlyfpe4wqlIJG6\nFp9fj3B6wxGukDtOssdHl9CMFQKBgQDSJDtBMOshxSASXrksxXKtmLbPijTjLIaj\nwMPIESDGtcREHYGnlpzStUonyDpNMMmjZ59CkKzAN1HgLFnIWlHRVyhkydjJATab\nt+r9DvwWDvOMCC1jmqxqtwpjx7eJ0OEuVETRZp2niH1iajSIvHvaD0k+hKcMVxrO\nG3PRIK/7AQKBgA+N1FeGUEiSPVsA5k9bJHUdwqmloFxfCks7iWOJRHDQW7/Ee76Z\nl3MiTx0ELGXroUIk7UEKg4TBwNqC+vWSKvdEfmeKhhvYn9fCiaf+oqoFoKcDcbzY\nEWtEYHD8/Ynj5zCJUKH5ChDjT+VcO3rNYUiMlnIIqRgbE2kWsARM0aFVAoGAafRC\nvDgCFmDiLuD71QspK0ZYxoQU7oZAzMgg7vtT310+vGl0Oh/Cqqsl3LEkVE9JG87f\nihyQPcqmybUS/+YqYrbjcw4i9BZchl9RaI7po+Wd/vkQiawvSw9Hec/1RtO+9jEf\nEcX/r70uGzUZj+gZOnWCpLcV0y8IIOvOlZ85nAECgYA8eIUxjd87aYNI3iG4s7vl\n+X1f2HJiAsRSqyYDjXDPYnW3O5RoB02GaEQ0QcTVIYDxR8W6C7/nYJS+SlNvEdVO\nAX8H9xFQkvqkFnDkrRF1n1g0noCM8V6cHR+eQjBzB2z/umqCO2CoIXAwkmG7Agch\n0S/4jJo560B0wztHu77X6g==\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-c6l14@vitandaandroid.iam.gserviceaccount.com",
+  "client_id": "115749846684056779267",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-c6l14%40vitandaandroid.iam.gserviceaccount.com"
+}

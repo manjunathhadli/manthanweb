@@ -9,19 +9,17 @@ import tornado.httpserver
 import os.path
 import uuid
 
-from urlparse import parse_qs, urlparse
 # import requests
 import hashlib
 import time
 import json
 import socket
 import itertools
-from urllib import quote
 import os
 import datetime
 from datetime import timedelta
 import sys
-import HTMLParser
+# import HTMLParser
 import re
 import random
 from tornado.template import Loader
@@ -34,10 +32,47 @@ from tornado.concurrent import Future
 from tornado import gen
 from tornado.options import define, options
 
+# from google.cloud import firestore
+#==========================
+import config
+import debateclass
+import constants
+# =========================
+import firebase_admin
+from firebase_admin import credentials
+from firebase_admin import firestore
+cred = credentials.Certificate('Certificate.json')
+firebase_admin.initialize_app(cred)
+
+db = firestore.client()
 
 
 define("deploy", default="dev", help="deployment mode")
 define("debug", default=False, help="run in debug mode")
+
+
+class createconv(tornado.web.RequestHandler):
+    def post(self):
+        data = tornado.escape.json_decode(self.request.body)
+        print(data)
+        topic = data["topic"]
+
+
+        uid = str(uuid.uuid4())
+        ts = int(time.time())
+
+        conv = debateclass.debate(uid,topic,ts)
+        print(conv.to_dict())
+
+        db.collection(FB_RCOLL_DEBATES).document(uid).set(conv.to_dict())
+        # db.collection(u'test').document(uid).set(conv.to_dict())
+
+        retdata = {
+            "status": "success",
+            "uid":uid
+        }
+        self.write(retdata)
+        return
 
 class MainHandler(tornado.web.RequestHandler):
     def get(self):
@@ -60,6 +95,7 @@ def main():
     app = tornado.web.Application(
         [
             (r"/", MainHandler),
+            (r"/createconv", createconv),
         ], **settings
 #        cookie_secret="__TODO:_GENERATE_YOUR_OWN_RANDOM_VALUE_HERE__",
 #        template_path=os.path.join(os.path.dirname(__file__), "templates"),
@@ -68,7 +104,8 @@ def main():
 #        debug=options.debug,
     )
     http_server = tornado.httpserver.HTTPServer(app)
-    http_server.listen(8888)
+    # http_server.listen(8888)
+    http_server.listen(80)
 
 #    app.listen(8888)
     tornado.ioloop.IOLoop.current().start()
