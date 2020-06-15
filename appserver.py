@@ -34,7 +34,7 @@ from tornado.options import define, options
 
 # from google.cloud import firestore
 #==========================
-import config
+# import config
 import debateclass
 import constants
 # =========================
