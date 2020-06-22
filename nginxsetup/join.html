@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+h1 {
+  text-align: center;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+
+  }
+p {text-align: center;}
+div {text-align: center;}
+</style>
+</head>
+<body>
+
+
+        <h1>
+                <a id="aid1" href="manthan://app1.immersmedia.in/join/672fefae-b8d9-4190-b839-d3daeb66bc63">Click here to join</a>
+        </h1>
+
+</body>
+<script type="text/javascript">
+var url = window.location.href;
+var pathname = window.location.pathname;
+var hostname = window.location.hostname;
+var protocol = window.location.protocol;
+
+url2 = new URL("manthan://"+hostname+pathname);
+document.getElementById("aid1").href=url2;
+
+</script>
+</html>

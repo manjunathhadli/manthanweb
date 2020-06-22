@@ -1,0 +1,14 @@
+================
+copy join.html to
+
+/varwww/html/join/ folder
+
+nginx config at
+/etc/nginx/sites-enabled/default
+
+add the following line ABOVE the current location part
+
+location /join/ {
+                try_files $uri /join/index.html =404;
+        }
+===================

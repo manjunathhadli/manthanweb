@@ -1,5 +1,16 @@
+import constants
+
+RESULT_WIN_FOR = "FORWINS"
+RESULT_WIN_AG = "AGWINS"
+
+PARTISTATUS_WAITING = "WAITING"
+PARTISTATUS_ACCEPTED = "ACCEPTED"
+PARTISTATUS_REJECTED = "REJECTED"
+PARTISTATUS_NORESPONSE = "NORESPONSE"
 
 class debate:
+
+
 
     # @staticmethod
     # def from_dict(source):
@@ -75,11 +86,11 @@ class debate:
         self.uid = uid;
         self.inviteruid = None;
         self.topic = topic;
-        self.actualstartts = ts;
-        self.actualendts =ts;
-        self.scheduledstartts =ts;
+        self.actualstartts = None;
+        self.actualendts =None;
+        self.scheduledstartts =None;
 
-        self.flagactivestate = "DEBACTIVSTATE_WAITINGJOIN";
+        self.flagactivestate = constants.DEBACTIVSTATE_WAITINGJOIN;
 
         self.debater_for_uid = None;
         self.debater_ag_uid = None;
@@ -96,14 +107,14 @@ class debate:
         self.debater_for_pic = None;
         self.debater_ag_pic = None;
         self.moderator_pic = None;
-        self.participants = None;
+        self.participants = [];
 
         #////////////STATUS//////////////////////////
 
 
-        self.debater_for_status = "PARTISTATUS_WAITING";
-        self.debater_ag_status = "PARTISTATUS_WAITING";
-        self.moderatorstatus = "PARTISTATUS_WAITING";
+        self.debater_for_status = PARTISTATUS_WAITING;
+        self.debater_ag_status = PARTISTATUS_WAITING;
+        self.moderatorstatus = PARTISTATUS_WAITING;
 
         #////////////STATISTICS//////////////////////////
         self.debstatcurrentviewership =0;
@@ -119,7 +130,7 @@ class debate:
 
 
         #////////////RUNTIME//////////////////////////
-        self.turn = "TURN_FOR";
+        self.turn = constants.TURN_FOR;
 
         self.activekeyargguid=None;
         self.activekeyargindex = 0;

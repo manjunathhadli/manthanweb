@@ -50,6 +50,15 @@ db = firestore.client()
 define("deploy", default="dev", help="deployment mode")
 define("debug", default=False, help="run in debug mode")
 
+class joindebview(tornado.web.RequestHandler):
+    def get(self, url):
+        o = urlparse(self.request.uri)
+        p = o.path.split('/')
+        uid = p[2]
+        hashuser = o.query
+        print(uid)
+
+        self.render("join.html")
 
 class createconv(tornado.web.RequestHandler):
     def post(self):
@@ -59,12 +68,13 @@ class createconv(tornado.web.RequestHandler):
 
 
         uid = str(uuid.uuid4())
-        ts = int(time.time())
+        ts = datetime.datetime.now()
+        ts = None;
 
         conv = debateclass.debate(uid,topic,ts)
         print(conv.to_dict())
 
-        db.collection(FB_RCOLL_DEBATES).document(uid).set(conv.to_dict())
+        db.collection(constants.FB_RCOLL_DEBATES).document(uid).set(conv.to_dict())
         # db.collection(u'test').document(uid).set(conv.to_dict())
 
         retdata = {
@@ -96,6 +106,7 @@ def main():
         [
             (r"/", MainHandler),
             (r"/createconv", createconv),
+            (r"/join/(.*)", joindebview),
         ], **settings
 #        cookie_secret="__TODO:_GENERATE_YOUR_OWN_RANDOM_VALUE_HERE__",
 #        template_path=os.path.join(os.path.dirname(__file__), "templates"),
@@ -104,8 +115,8 @@ def main():
 #        debug=options.debug,
     )
     http_server = tornado.httpserver.HTTPServer(app)
-    # http_server.listen(8888)
-    http_server.listen(80)
+    http_server.listen(8888)
+    # http_server.listen(80)
 
 #    app.listen(8888)
     tornado.ioloop.IOLoop.current().start()
