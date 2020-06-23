@@ -73,30 +73,37 @@ class MyStreamListener(tweepy.StreamListener):
         # print(atlist)
 
         print("---")
-        print(tweet.text)
-
-        print("replytoid:",{tweet.in_reply_to_status_id}, {tweet.in_reply_to_status_id_str})
-        print("replytouser", {tweet.in_reply_to_user_id},{tweet.in_reply_to_screen_name})
+        print("tweettext",tweet.text)
+        print("tweetid:",tweet.id)
         print("user", {tweet.user.id_str}, {tweet.user.screen_name})
 
-        otweet = api.get_status(tweet.in_reply_to_status_id)
-        print("original tweet:", otweet.text)
-        print(f"{tweet.user.name}:{tweet.text}")
 
+        print("replytotweetid:",{tweet.in_reply_to_status_id}, {tweet.in_reply_to_status_id_str})
+        print("replytouserid", {tweet.in_reply_to_user_id},{tweet.in_reply_to_screen_name})
 
+        if (tweet.user.id_str != tweet.in_reply_to_user_id_str):
 
+            otweet = api.get_status(tweet.in_reply_to_status_id)
+            print("original tweet:", otweet.text)
+            print(f"{tweet.user.name}:{tweet.text}")
 
-        data={
-            "topic":otweet.text,
-        }
+            data={
+                "topic":otweet.text,
+            }
 
-        r = requests.post(url = API_ENDPOINT, data = json.dumps(data))
-        rj = json.loads(r.text)
-        fulllink = "http://app1.immersmedia.in/join/"+rj["uid"]
-        print(fulllink)
+            r = requests.post(url = API_ENDPOINT, data = json.dumps(data))
+            rj = json.loads(r.text)
+            fulllink = "http://app1.immersmedia.in/join/"+rj["uid"]
+            print(fulllink)
 
-        m = "@%s, @%s Hello!, Have a great Manthan at %s" % (tweet.user.screen_name,tweet.in_reply_to_screen_name,fulllink)
-        s = api.update_status(m, tweet.in_reply_to_user_id)
+            # m = "@%s, @%s Hello!, Have a great Manthan at %s" % (tweet.user.screen_name,tweet.in_reply_to_screen_name,fulllink)
+            m = "@%s  @%s Hello!, Have a great Manthan at %s" % (tweet.in_reply_to_screen_name,tweet.user.screen_name,fulllink)
+            # m = "Hello!, Have a great Manthan at %s" % (fulllink)
+            # s = api.update_status(m, tweet.in_reply_to_status_id)
+            s = api.update_status(m, tweet.id)
+        else:
+            a=20
+
 
 
 
