@@ -11,10 +11,10 @@ logger = logging.getLogger()
 logger.setLevel(logging.CRITICAL)
 
 
-consumer_key = 'R4XaptwY5KXRYtsV9ZbrDug8T'
-consumer_secret = 'Zwofy9tfmVxHAC6nqWsG2MGUXk5EnmswLcq6Y2BWlRByEaD2K0'
-access_token = '986274664530952193-fYSTLExbi9yjvRzmG78YhgfkCk5Tina'
-access_token_secret = 'OsUB9zSC7yT8uptwJ0mdEpxkE5DyMQm4nd2GDg0UrPTdz'
+consumer_key = 'Gm19gW2IgUjhaxwF833PuQeAJ'
+consumer_secret = 'llLGAzbmgESlPDHBZUBIv2LmvYeBSlDQb40pjnJygwcHsoUOPe'
+access_token = '1270971658862383104-QDQBlXBvdnn1FMgHISf1RqhgeA71HC'
+access_token_secret = 'UTbDYDSE3Q3a5hKcabu1pMPJZ0NBLcjoitMlvctod8B5P'
 
 
 API_ENDPOINT = "http://localhost:8888/createconv"
