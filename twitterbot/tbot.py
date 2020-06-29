@@ -93,7 +93,7 @@ class MyStreamListener(tweepy.StreamListener):
 
             r = requests.post(url = API_ENDPOINT, data = json.dumps(data))
             rj = json.loads(r.text)
-            fulllink = "http://app1.immersmedia.in/join/"+rj["uid"]
+            fulllink = "http://app.manthanapp.com/join/"+rj["uid"]
             print(fulllink)
 
             # m = "@%s, @%s Hello!, Have a great Manthan at %s" % (tweet.user.screen_name,tweet.in_reply_to_screen_name,fulllink)
@@ -116,7 +116,7 @@ tweets_listener = MyStreamListener(api)
 stream = tweepy.Stream(api.auth, tweets_listener)
 # stream.filter(track=["opynion_org"])
 # stream.filter(follow=["986274664530952193"], async=True)
-stream.filter(track=['opynion_org'], is_async=True)
+stream.filter(track=['letsmanthan'], is_async=True)
 
 # mentions = api.mentions_timeline()
 # for mention in mentions:
