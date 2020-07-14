@@ -92,9 +92,23 @@ class MyStreamListener(tweepy.StreamListener):
             }
 
             r = requests.post(url = API_ENDPOINT, data = json.dumps(data))
+            print(r.content)
+            print(r.text)
+            print(json.loads(r.text))
             rj = json.loads(r.text)
             fulllink = "http://app.manthanapp.com/join/"+rj["uid"]
             print(fulllink)
+
+# r = requests.post(url = API_ENDPOINT, data = json.dumps(data))
+# print(r.content)
+# print(r.text)
+# rj = json.loads(r.text)
+# print(rj)
+# print(rj["uid"])
+# print("http://app1.immersmedia.in/join/"+rj["uid"])
+
+
+
 
             # m = "@%s, @%s Hello!, Have a great Manthan at %s" % (tweet.user.screen_name,tweet.in_reply_to_screen_name,fulllink)
             m = "@%s  @%s Hello!, Have a great Manthan at %s" % (tweet.in_reply_to_screen_name,tweet.user.screen_name,fulllink)
