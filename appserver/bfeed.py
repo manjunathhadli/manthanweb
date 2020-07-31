@@ -53,7 +53,7 @@ class bfeed:
 
         self.sourceorg = "Twitter"
         self.sourceorgname = "Twitter"
-        self.sourceorgpic = "https://app.manthanapp.com/static/Twitter_Logo_Blue.png"
+        self.sourceorgpic = "https://app.manthanapp.com/static/assets/images/twitterlogoblue.png"
         self.sourceurl = "https://www.twitter.com"
 
         self.relcountry = []
