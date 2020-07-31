@@ -14,26 +14,26 @@ class bfeed:
 
     def to_dict(self):
         retconv = {
-         u'uid' : self.uid
-         u'topic' : self.topic
+         u'uid' : self.uid,
+         u'topic' : self.topic,
 
 
-         u'sourcetype' : self.sourcetype
-         u'sourceuseruid' : self.sourceuseruid
-         u'sourceusersid' : self.sourceusersid
+         u'sourcetype' : self.sourcetype,
+         u'sourceuseruid' : self.sourceuseruid,
+         u'sourceusersid' : self.sourceusersid,
 
 
-         u'sourceorg' : self.sourceorg
-         u'sourceorgname' : self.sourceorgname
-         u'sourceorgpic' : self.sourceorgpic
-         u'sourceurl' : self.sourceurl
+         u'sourceorg' : self.sourceorg,
+         u'sourceorgname' : self.sourceorgname,
+         u'sourceorgpic' : self.sourceorgpic,
+         u'sourceurl' : self.sourceurl,
 
-         u'relcountry' : self.relcountry
-         u'reldomain' : self.reldomain
-         u'reltags' : self.reltags
-         u'convos' : self.convos
-         u'defenduids' : self.defenduids
-         u'calloutuids' : self.calloutuids
+         u'relcountry' : self.relcountry,
+         u'reldomain' : self.reldomain,
+         u'reltags' : self.reltags,
+         u'convos' : self.convos,
+         u'defenduids' : self.defenduids,
+         u'calloutuids' : self.calloutuids,
 
          Date ts : self.ts
         }
