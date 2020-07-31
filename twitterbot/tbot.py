@@ -98,7 +98,7 @@ class MyStreamListener(tweepy.StreamListener):
             print(r.text)
             print(json.loads(r.text))
             rj = json.loads(r.text)
-            fulllink = "http://app.manthanapp.com/join/"+rj["uid"]
+            fulllink = "https://app.manthanapp.com/join/"+rj["uid"]
             print(fulllink)
 
 # r = requests.post(url = API_ENDPOINT, data = json.dumps(data))
