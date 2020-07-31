@@ -17,7 +17,7 @@ access_token = '1270971658862383104-QDQBlXBvdnn1FMgHISf1RqhgeA71HC'
 access_token_secret = 'UTbDYDSE3Q3a5hKcabu1pMPJZ0NBLcjoitMlvctod8B5P'
 
 
-API_ENDPOINT = "https://localhost:8888/createconv"
+API_ENDPOINT = "http://localhost:8888/createconv"
 API_KEY = "XXXXXXXXXXXXXXXXX"
 
 
