@@ -37,6 +37,7 @@ from tornado.options import define, options
 # import config
 import debateclass
 import constants
+import bfeed
 # =========================
 import firebase_admin
 from firebase_admin import credentials
@@ -65,16 +66,26 @@ class createconv(tornado.web.RequestHandler):
         data = tornado.escape.json_decode(self.request.body)
         print(data)
         topic = data["topic"]
+        ouser = data["ouser"]
+        user = data["user"]
+
 
 
         uid = str(uuid.uuid4())
+        feeduid = str(uuid.uuid4())
+
         ts = datetime.datetime.now()
-        ts = None;
+
+        feed = bfeed.bfeed(feeduid,topic,user)
+        feed.convos.append(uid)
+        print(feed.to_dict())
 
         conv = debateclass.debate(uid,topic,ts)
+        conv.feeduid = feeduid
         print(conv.to_dict())
 
         db.collection(constants.FB_RCOLL_DEBATES).document(uid).set(conv.to_dict())
+        db.collection(constants.FB_RCOLL_ALLFEED).document(feeduid).set(bfeed.to_dict())
         # db.collection(u'test').document(uid).set(conv.to_dict())
 
         retdata = {

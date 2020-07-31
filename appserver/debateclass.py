@@ -25,7 +25,9 @@ class debate:
         retconv = {
             u'uid':self.uid,
             u'inviteruid' : self.inviteruid,
-            'topic' : self.topic,
+            u'topic' : self.topic,
+            u'feeduid': self.feeduid,
+            
             u'actualstartts' : self.actualstartts,
             u'actualendts' : self.actualendts,
             u'scheduledstartts' : self.scheduledstartts,
@@ -73,7 +75,8 @@ class debate:
             u'turn' : self.turn,
 
             u'activekeyargguid' : self.activekeyargguid,
-            u'activekeyargindex' : self.activekeyargindex
+            u'activekeyargindex' : self.activekeyargindex,
+            u'ts':self.ts
         }
         return retconv
 
@@ -86,6 +89,8 @@ class debate:
         self.uid = uid;
         self.inviteruid = None;
         self.topic = topic;
+
+        self.feeduid = None;
         self.actualstartts = None;
         self.actualendts =None;
         self.scheduledstartts =None;
@@ -134,3 +139,4 @@ class debate:
 
         self.activekeyargguid=None;
         self.activekeyargindex = 0;
+        self.ts = datetime.datetime.now();

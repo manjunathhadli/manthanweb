@@ -89,6 +89,8 @@ class MyStreamListener(tweepy.StreamListener):
 
             data={
                 "topic":otweet.text,
+                "ouser":otweet.user.name,
+                "user":tweet.user.name
             }
 
             r = requests.post(url = API_ENDPOINT, data = json.dumps(data))
