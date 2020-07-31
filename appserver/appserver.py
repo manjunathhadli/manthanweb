@@ -37,7 +37,7 @@ from tornado.options import define, options
 # import config
 import debateclass
 import constants
-import bfeed
+import bfeedclass
 # =========================
 import firebase_admin
 from firebase_admin import credentials
@@ -45,7 +45,7 @@ from firebase_admin import firestore
 
 os.sys.path.append(os.environ['MANTHANWEB_HOME'])
 
-cred = credentials.Certificate('Certificate.json')
+cred = credentials.Certificate(os.environ['MANTHANWEB_HOME']+'/Certificate.json')
 firebase_admin.initialize_app(cred)
 
 db = firestore.client()

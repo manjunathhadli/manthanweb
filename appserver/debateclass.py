@@ -1,4 +1,5 @@
 import constants
+import datetime
 
 RESULT_WIN_FOR = "FORWINS"
 RESULT_WIN_AG = "AGWINS"
@@ -27,7 +28,7 @@ class debate:
             u'inviteruid' : self.inviteruid,
             u'topic' : self.topic,
             u'feeduid': self.feeduid,
-            
+
             u'actualstartts' : self.actualstartts,
             u'actualendts' : self.actualendts,
             u'scheduledstartts' : self.scheduledstartts,
