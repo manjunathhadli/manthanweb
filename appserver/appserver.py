@@ -79,7 +79,7 @@ class createconv(tornado.web.RequestHandler):
 
         ts = datetime.datetime.now()
 
-        feed = bfeed.bfeed(feeduid,topic,user)
+        feed = bfeedclass.bfeed(feeduid,topic,user)
         feed.convos.append(uid)
         print(feed.to_dict())
 
@@ -88,7 +88,7 @@ class createconv(tornado.web.RequestHandler):
         print(conv.to_dict())
 
         db.collection(constants.FB_RCOLL_DEBATES).document(uid).set(conv.to_dict())
-        db.collection(constants.FB_RCOLL_ALLFEED).document(feeduid).set(bfeed.to_dict())
+        db.collection(constants.FB_RCOLL_ALLFEED).document(feeduid).set(feed.to_dict())
         # db.collection(u'test').document(uid).set(conv.to_dict())
 
         retdata = {
