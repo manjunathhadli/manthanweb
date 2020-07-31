@@ -35,7 +35,7 @@ class bfeed:
          u'defenduids' : self.defenduids,
          u'calloutuids' : self.calloutuids,
 
-         Date ts : self.ts
+         u'ts' : self.ts
         }
         return retconv
 
