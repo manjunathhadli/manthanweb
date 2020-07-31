@@ -42,6 +42,9 @@ import bfeed
 import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import firestore
+
+os.sys.path.append(os.environ['MANTHANWEB_HOME'])
+
 cred = credentials.Certificate('Certificate.json')
 firebase_admin.initialize_app(cred)
 
