@@ -53,7 +53,7 @@ class bfeed:
         self.sourceusersid = "@letusmanthan"
 
         self.sourceorg = "Twitter"
-        self.sourceorgname = "Twitter"
+        self.sourceorgname = sourcename
         self.sourceorgpic = "https://app.manthanapp.com/static/assets/images/twitterlogoblue.png"
         self.sourceurl = "https://www.twitter.com"
 
