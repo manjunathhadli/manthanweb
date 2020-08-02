@@ -78,8 +78,8 @@ class createconv(tornado.web.RequestHandler):
         feeduid = str(uuid.uuid4())
 
         ts = datetime.datetime.now()
-
-        feed = bfeedclass.bfeed(feeduid,topic,user)
+        userstring  = ouser+"/"+user
+        feed = bfeedclass.bfeed(feeduid,topic,userstring)
         feed.convos.append(uid)
         print(feed.to_dict())
 
