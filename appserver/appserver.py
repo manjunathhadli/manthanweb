@@ -98,6 +98,31 @@ class createconv(tornado.web.RequestHandler):
         self.write(retdata)
         return
 
+class createfeed(tornado.web.RequestHandler):
+    def post(self):
+        data = tornado.escape.json_decode(self.request.body)
+        print(data)
+        topic = data["topic"]
+        ouser = data["ouser"]
+        user = data["user"]
+
+        feeduid = str(uuid.uuid4())
+        ts = datetime.datetime.now()
+        userstring  = ouser+"/"+user
+        feed = bfeedclass.bfeed(feeduid,topic,userstring)
+
+        print(feed.to_dict())
+
+        db.collection(constants.FB_RCOLL_ALLFEED).document(feeduid).set(feed.to_dict())
+
+        retdata = {
+            "status": "success",
+            "uid":uid
+        }
+        self.write(retdata)
+        return
+
+
 class MainHandler(tornado.web.RequestHandler):
     def get(self):
         self.write("Hello, world")
@@ -120,6 +145,7 @@ def main():
         [
             (r"/", MainHandler),
             (r"/createconv", createconv),
+            (r"/createfeed", createfeed),            
             (r"/join/(.*)", joindebview),
         ], **settings
 #        cookie_secret="__TODO:_GENERATE_YOUR_OWN_RANDOM_VALUE_HERE__",
