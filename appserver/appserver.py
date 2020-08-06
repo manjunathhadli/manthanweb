@@ -133,11 +133,12 @@ class createrssfeed(tornado.web.RequestHandler):
         imageurl = data["imageurl"]
         site_name = data["site_name"]
         pageurl = data["url"]
+        author = data["author"]
 
         feeduid = str(uuid.uuid4())
         ts = datetime.datetime.now()
-        userstring  = ouser+"/"+user
-        feed = bfeedclass.bfeed(feeduid,topic,userstring,site_name,imageurl,pageurl)
+        userstring  = author
+        feed = bfeedclass.bfeed(feeduid,topic,author,site_name,imageurl,pageurl)
 
         print(feed.to_dict())
 

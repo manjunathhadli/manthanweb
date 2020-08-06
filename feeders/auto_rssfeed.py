@@ -1,3 +1,7 @@
+import sys
+import tweepy
+import json
+
 import feedparser
 # import BeautifulSoup
 from bs4 import BeautifulSoup
@@ -34,13 +38,6 @@ feeds = ["https://www.thehindu.com/news/national/?service=rss",
         ]
 
 
-
-
-
-
-
-
-
 for feed in feeds:
     NewsFeed = feedparser.parse(feed)
 
@@ -72,7 +69,8 @@ for feed in feeds:
                     "topic":topic,
                     "imageurl":imageurl,
                     "site_name":site_name,
-                    "url":url
+                    "url":url,
+                    "author":site_name
                 }
 
                 r = requests.post(url = API_CF_ENDPOINT, data = json.dumps(data))
