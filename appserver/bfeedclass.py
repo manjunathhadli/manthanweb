@@ -44,7 +44,7 @@ class bfeed:
         return vars(self).items()
 
 
-    def __init__(self,uid,topic,sourcename):
+    def __init__(self,uid,topic,sourcename,sourceorg,sourceorgpic,sourceurl):
         self.uid = uid
         self.topic = topic
 
@@ -52,10 +52,12 @@ class bfeed:
         self.sourceuseruid = "ArR1BJ8zHsM0sL6DmfnHvtHD10R2"
         self.sourceusersid = "@letusmanthan"
 
-        self.sourceorg = "Twitter"
+        self.sourceorg = sourceorg
         self.sourceorgname = sourcename
-        self.sourceorgpic = "https://app.manthanapp.com/static/assets/images/twitterlogoblue.png"
-        self.sourceurl = "https://www.twitter.com"
+        # self.sourceorgpic = "https://app.manthanapp.com/static/assets/images/twitterlogoblue.png"
+        self.sourceorgpic = sourceorgpic
+        # self.sourceurl = "https://www.twitter.com"
+        self.sourceurl = sourceurl
 
         self.relcountry = []
         self.reldomain = []

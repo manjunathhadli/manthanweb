@@ -50,6 +50,9 @@ firebase_admin.initialize_app(cred)
 
 db = firestore.client()
 
+twitterpic = "https://app.manthanapp.com/static/assets/images/twitterlogoblue.png"
+twitterurl = "https://www.twitter.com"
+
 
 define("deploy", default="dev", help="deployment mode")
 define("debug", default=False, help="run in debug mode")
@@ -64,7 +67,7 @@ class joindebview(tornado.web.RequestHandler):
 
         self.render("join.html")
 
-class createconv(tornado.web.RequestHandler):
+class createtwitterconv(tornado.web.RequestHandler):
     def post(self):
         data = tornado.escape.json_decode(self.request.body)
         print(data)
@@ -79,7 +82,7 @@ class createconv(tornado.web.RequestHandler):
 
         ts = datetime.datetime.now()
         userstring  = ouser+"/"+user
-        feed = bfeedclass.bfeed(feeduid,topic,userstring)
+        feed = bfeedclass.bfeed(feeduid,topic,userstring,"Twitter",twitterpic,twitterurl)
         feed.convos.append(uid)
         print(feed.to_dict())
 
@@ -98,7 +101,7 @@ class createconv(tornado.web.RequestHandler):
         self.write(retdata)
         return
 
-class createfeed(tornado.web.RequestHandler):
+class createtwitterfeed(tornado.web.RequestHandler):
     def post(self):
         data = tornado.escape.json_decode(self.request.body)
         print(data)
@@ -109,7 +112,7 @@ class createfeed(tornado.web.RequestHandler):
         feeduid = str(uuid.uuid4())
         ts = datetime.datetime.now()
         userstring  = ouser+"/"+user
-        feed = bfeedclass.bfeed(feeduid,topic,userstring)
+        feed = bfeedclass.bfeed(feeduid,topic,userstring,"Twitter",twitterpic,twitterurl)
 
         print(feed.to_dict())
 
@@ -117,11 +120,35 @@ class createfeed(tornado.web.RequestHandler):
 
         retdata = {
             "status": "success",
-            "uid":uid
+            "uid":feeduid
         }
         self.write(retdata)
         return
 
+class createrssfeed(tornado.web.RequestHandler):
+    def post(self):
+        data = tornado.escape.json_decode(self.request.body)
+        print(data)
+        topic = data["topic"]
+        imageurl = data["imageurl"]
+        site_name = data["site_name"]
+        pageurl = data["url"]
+
+        feeduid = str(uuid.uuid4())
+        ts = datetime.datetime.now()
+        userstring  = ouser+"/"+user
+        feed = bfeedclass.bfeed(feeduid,topic,userstring,site_name,imageurl,pageurl)
+
+        print(feed.to_dict())
+
+        db.collection(constants.FB_RCOLL_ALLFEED).document(feeduid).set(feed.to_dict())
+
+        retdata = {
+            "status": "success",
+            "uid":feeduid
+        }
+        self.write(retdata)
+        return
 
 class MainHandler(tornado.web.RequestHandler):
     def get(self):
@@ -144,8 +171,9 @@ def main():
     app = tornado.web.Application(
         [
             (r"/", MainHandler),
-            (r"/createconv", createconv),
-            (r"/createfeed", createfeed),            
+            (r"/createtwitterconv", createtwitterconv),
+            (r"/createtwitterfeed", createtwitterfeed),
+            (r"/createrssfeed", createrssfeed),
             (r"/join/(.*)", joindebview),
         ], **settings
 #        cookie_secret="__TODO:_GENERATE_YOUR_OWN_RANDOM_VALUE_HERE__",
