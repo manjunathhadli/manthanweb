@@ -64,9 +64,9 @@ for feed in feeds:
         finally:
             if (page!=None):
                 topic = page.get_metadatas('title', strategy=['og',])[0]
-                imageurl = page.get_metadatas('image', strategy=['og',])[0])
-                site_name  = page.get_metadatas('site_name', strategy=['og',])[0])
-                url = page.get_metadatas('url', strategy=['og',])[0])
+                imageurl = page.get_metadatas('image', strategy=['og',])[0]
+                site_name  = page.get_metadatas('site_name', strategy=['og',])[0]
+                url = page.get_metadatas('url', strategy=['og',])[0]
 
                 data={
                     "topic":topic,
